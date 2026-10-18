@@ -10,3 +10,6 @@ else:
     print("No puede ver la pelicula")
 
 print("Listo")
+
+# En este ejemplo, se utiliza una estructura if-elif-else para evaluar la edad ingresada por el usuario y determinar
+# si puede ver la película con descuento, sin descuento o no puede verla.

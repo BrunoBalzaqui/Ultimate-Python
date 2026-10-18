@@ -17,3 +17,5 @@ print(mensaje)
 # ejemplo de if ternario con multiples condiciones
 # edad = 15
 # mensaje = "Es mayor de edad" if edad > 17 else "Es adolescente"
+
+# En este ejemplo, se utiliza un if ternario para asignar un mensaje a la variable mensaje en función de la edad.

@@ -18,3 +18,5 @@ edad = 18
 
 if not gas or encendido or edad > 17:
     print("El coche puede arrancar")
+
+# en este ejemplo, se utilizan operadores lógicos para evaluar varias condiciones relacionadas con el estado de un coche.
