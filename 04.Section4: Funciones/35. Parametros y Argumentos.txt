@@ -1,0 +1,60 @@
+Aunque a menudo se usan como sinónimos en el día a día, parámetros y argumentos representan dos momentos 
+diferentes en la vida de una función. La diferencia radica en si estamos definiendo la función o ejecutándola.
+
+A nivel de hardware y memoria RAM, esta distinción define cuándo se diseña la estructura del bloque de memoria 
+y cuándo se llenan esos espacios con datos reales.
+
+
+1. Parámetros (La Definición)
+
+Los parámetros son las variables que se listan en la declaración de la función. Son los moldes, variables locales 
+o "espacios reservados" que especifican qué datos necesita la función para poder operar.
+• Cuándo existen: Al escribir el código (tiempo de definición).
+• En memoria: Le dicen a la Máquina Virtual de Python (PVM): "Cuando alguien use esta función, reserva espacio 
+para estas variables".
+- # 'nombre' y 'edad' son PARÁMETROS
+- def saludar(nombre, edad):
+-     print(f"Hola {nombre}, tienes {edad} años.")
+
+2. Argumentos (La Ejecución)
+
+Los argumentos son los valores reales y concretos que tú le pasas a la función cuando la invocas o llamas en tu código.
+• Cuándo existen: Al correr el programa (tiempo de ejecución).
+• En memoria: Son los objetos reales (strings, enteros, etc.) que se asignan a los parámetros para que la CPU realice los cálculos.
+- # "Carlos" y 25 son ARGUMENTOS
+- saludar("Carlos", 25) 
+
+
+Tipos de Argumentos en Python
+
+Python te da mucha flexibilidad para enviar argumentos a los parámetros de una función:
+
+A. Argumentos Posicionales
+
+Se asignan en el mismo orden en que fueron definidos los parámetros.
+python
+def restar(a, b):
+    return a - b
+
+restar(10, 3)  # 'a' toma 10, 'b' toma 3. Resultado: 7
+restar(3, 10)  # 'a' toma 3, 'b' toma 10. Resultado: -7
+Use code with caution.
+
+
+B. Argumentos por Nombre (Keyword Arguments)
+
+Especificas explícitamente a qué parámetro va asignado cada valor. El orden ya no importa.
+python
+restar(b=3, a=10)  # Sabe exactamente qué valor va a cada letra. Resultado: 7
+Use code with caution.
+
+C. Parámetros por Defecto
+
+Puedes asignarles un valor predeterminado a los parámetros en la definición. Si al ejecutar la función no 
+pasas ese argumento, Python usa el valor por defecto a nivel de hardware.
+python
+def configurar_conexion(puerto=8080):
+    print(f"Conectando al puerto {puerto}")
+
+configurar_conexion()      # No pasas argumento. Usa el por defecto: 8080
+configurar_conexion(3000)  # Pasas argumento. Sobrescribe al puerto: 3000

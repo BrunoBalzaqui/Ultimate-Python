@@ -1,0 +1,30 @@
+Las extensiones más útiles y recomendadas para desarrollar en Python dentro de Visual Studio Code (VS Code) 
+se dividen en esenciales, de productividad y de apoyo para análisis o pruebas:
+
+Esenciales (Fundamentales)
+
+• Python (Microsoft): Es la extensión oficial y obligatoria. Proporciona soporte para IntelliSense (autocompletado inteligente), 
+depuración (debugging), linting, refactorización y administración de entornos virtuales.
+• Pylance: Desarrollada también por Microsoft (se suele instalar junto con la principal), ofrece un análisis de código ultrarrápido, 
+tipos estáticos y navegación avanzada por las definiciones de tu código.
+• Jupyter: Permite crear, editar y ejecutar Jupyter Notebooks directamente dentro de la interfaz de VS Code.
+
+Productividad y Formateo
+
+• Python Indent: Corrige automáticamente la indentación de tu código Python mientras vas escribiendo, evitando los típicos 
+errores de IndentationError.
+• Python Docstring Generator: Genera plantillas automáticas de documentación (en formatos como Google, NumPy o Sphinx) 
+para tus funciones y clases con solo escribir """.
+• Code Runner: Te deja ejecutar fragmentos de código o archivos completos en Python (y otros lenguajes) con un solo botón, 
+sin tener que abrir o escribir comandos manualmente en la terminal.
+• Indent Rainbow: Colorea los distintos niveles de indentación con diferentes tonos para que sea mucho más fácil leer estructuras complejas o bloques anidados.
+
+Pruebas y Comentarios
+
+• Python Test Explorer: Facilita la visualización y ejecución de pruebas unitarias (Unittest, Pytest, etc.) 
+desde una pestaña lateral en el editor.
+• Better Comments: Te permite dar formatos y colores especiales a los comentarios en tu código 
+(por ejemplo, para marcar alertas, pendientes o preguntas importantes).
+
+Puedes instalar cualquiera de ellas abriendo el panel de extensiones en VS Code con el atajo Ctrl + Shift + X 
+(o Cmd + Shift + X en Mac) y buscando su nombre.

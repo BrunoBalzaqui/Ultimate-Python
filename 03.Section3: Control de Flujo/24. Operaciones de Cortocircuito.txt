@@ -1,0 +1,77 @@
+Las operaciones de cortocircuito (en inglés, short-circuit evaluation) son un comportamiento optimizado 
+que tienen los operadores lógicos and y or en Python (y en muchos otros lenguajes) a nivel de la Máquina 
+Virtual y el procesador.
+
+El cortocircuito significa que Python evalúa las condiciones de izquierda a derecha y se detiene inmediatamente 
+en cuanto tiene suficiente información para saber el resultado final de toda la expresión, sin necesidad de 
+procesar el resto de los términos.
+
+
+Esto ahorra tiempo de cómputo a nivel de hardware y permite escribir código más seguro.
+
+1. Cortocircuito con el operador and (Y lógico)
+
+Para que una expresión con and sea verdadera, todas sus partes deben ser verdaderas (True).
+• La regla del cortocircuito: Si Python evalúa la primera condición y resulta ser False, ya no le importa lo que 
+haya a la derecha. Sabe que todo el resultado será False, por lo que aborta la evaluación en ese mismo instante 
+y salta a la siguiente instrucción.
+- # Ejemplo de cortocircuito con AND
+- condicion_1 = False
+- condicion_2 = funcion_muy_lenta_que_tarda_5_minutos()
+- 
+- if condicion_1 and condicion_2:
+-     print("Esto nunca se ejecutará")
+
+Detrás de escena: La CPU evalúa condicion_1. Al ver que es False, el intérprete hace un "cortocircuito": ignora 
+por completo a condicion_2. La función lenta nunca llega a llamarse ni a ejecutarse, ahorrando recursos del sistema.
+
+
+2. Cortocircuito con el operador or (O lógico)
+
+Para que una expresión con or sea verdadera, basta con que al menos una de sus partes sea verdadera (True).
+• La regla del cortocircuito: Si Python evalúa la primera condición y resulta ser True, ya sabe con total certeza que 
+toda la expresión será True. Por lo tanto, hace cortocircuito y no evalúa nada de lo que esté a la derecha.
+- # Ejemplo de cortocircuito con OR
+- usuario_es_administrador = True
+- 
+- if usuario_es_administrador or verificar_en_base_de_datos_remota():
+-     print("Acceso concedido")
+
+Detrás de escena: Como usuario_es_administrador ya es True, Python no pierde tiempo haciendo la consulta pesada a la 
+base de datos remota. Corta ahí el proceso y entra directo al bloque del if.
+
+
+El "Superpoder" del Cortocircuito: Evitar Errores Críticos
+
+El cortocircuito no es solo para ganar velocidad; los programadores lo usan estratégicamente como un escudo protector 
+para evitar que el programa se rompa (evitar excepciones como ZeroDivisionError o IndexError).
+
+Ejemplo 1: Evitar la división por cero
+
+Si intentas dividir por cero, Python lanza un error y frena el programa. Con cortocircuito puedes proteger la operación 
+ubicando la validación a la izquierda:
+- denominador = 0
+- numerador = 10
+- 
+- # El primer término es Falso (0 != 0), así que 'and' hace cortocircuito.
+- # La división de la derecha NUNCA se ejecuta, evitando el error crítico.
+- if denominador != 0 and (numerador / denominador) > 2:
+-     print("El resultado es mayor a 2")
+- else:
+-     print("Operación no válida o resultado menor a 2")
+
+Ejemplo 2: Evitar desbordamiento de listas (IndexError)
+
+Imagina que quieres revisar si el tercer elemento de una lista es un número específico, 
+pero no estás seguro de si la lista tiene tres elementos:
+- lista = [10, 20] # Solo tiene 2 elementos (índices 0 y 1)
+- 
+- # Primero verificamos el tamaño. Como len(lista) > 2 es Falso, 
+- # el 'and' hace cortocircuito y no intenta leer lista[2], evitando que el programa explote.
+- if len(lista) > 2 and lista[2] == 30:
+-     print("El tercer elemento es 30")
+
+Resumen para el procesador:
+
+• En un A and B: Si A es False, B no se evalúa.
+• En un A or B: Si A es True, B no se evalúa.

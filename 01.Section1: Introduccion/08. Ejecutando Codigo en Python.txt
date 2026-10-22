@@ -1,0 +1,30 @@
+Para ejecutar código en Python en Visual Studio Code (VS Code), sigue estos pasos principales:
+
+1. Requisitos previos
+
+• Instala Python: Descárgalo desde el Sitio Oficial de Python (asegúrate de marcar la opción Add Python to PATH durante la instalación).
+• Instala las extensiones en VS Code:
+	• La extensión oficial de Python (desarrollada por Microsoft).
+	• (Opcional) La extensión Code Runner para ejecutar código rápidamente.
+
+2. Crear y escribir tu código
+
+1. Abre VS Code.
+2. Crea una carpeta para tu proyecto y ábrela en el editor.
+3. Crea un nuevo archivo con la extensión .py (por ejemplo, hola.py).
+4. Escribe tu código, por ejemplo:
+- print("¡Hola, mundo!")
+
+3. Seleccionar el intérprete de Python
+
+1. Presiona Ctrl + Shift + P (o Cmd + Shift + P en Mac) para abrir la paleta de comandos.
+2. Escribe y selecciona: Python: Select Interpreter.
+3. Elige la versión de Python que instalaste en tu equipo.
+
+4. Formas de ejecutar el código
+
+• Botón de reproducción: Haz clic en el botón de Play (esquina superior derecha de la pantalla) y selecciona Run Python File.
+• Clic derecho: Haz clic en cualquier parte del editor del archivo .py y selecciona Ejecutar archivo de Python en la terminal (o Run Code si instalaste Code Runner).
+• Atajo de teclado: Presiona Ctrl + F5 para ejecutar sin depurar, o F5 para iniciar el depurador.
+• Desde la terminal integrada: Abre la terminal de VS Code (`Ctrl + ``) y escribe el comando:
+- python nombre_del_archivo.py

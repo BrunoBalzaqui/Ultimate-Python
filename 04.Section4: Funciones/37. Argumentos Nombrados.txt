@@ -1,0 +1,63 @@
+Los argumentos nombrados (también conocidos en inglés como keyword arguments o kwargs) son una forma de pasar 
+valores a una función especificando explícitamente el nombre del parámetro al momento de llamarla, usando la 
+sintaxis nombre_parametro = valor.
+A nivel de hardware y compilación, esto cambia cómo la Máquina Virtual de Python (PVM) empareja los datos en 
+la memoria RAM: en lugar de guiarse estrictamente por el orden físico (posición), utiliza un mapeo directo 
+(como un diccionario) para asignar cada argumento a su respectivo espacio reservado.
+
+
+Sintaxis y Ventajas Principales
+
+
+1. Rompen el orden posicional
+
+Al especificar el nombre de los parámetros, el orden en el que escribes los argumentos deja de importar.
+python
+def calcular_imc(peso, altura):
+    return peso / (altura ** 2)
+
+# Llamada tradicional posicional: debes recordar el orden exacto
+print(calcular_imc(70, 1.75))
+
+# Llamada con argumentos nombrados: el orden no importa
+print(calcular_imc(altura=1.75, peso=70)) 
+Use code with caution.
+
+2. Código auto-documentado y legible
+
+Mejoran drásticamente la lectura del código en tu editor (VS Code). Evitan que tengas que adivinar qué significa 
+cada número o texto cuando lees una función que escribiste hace meses.
+python
+# ❌ Difícil de entender a simple vista (¿Qué es True y qué es 2?)
+crear_usuario("Lucas", True, 2)
+
+#  Claro y auto-explicativo
+crear_usuario(nombre="Lucas", es_administrador=True, intentos_fallidos=2)
+Use code with caution.
+
+La Regla de Combinación
+
+En Python puedes mezclar argumentos posicionales y nombrados en una misma llamada, pero existe una regla de oro 
+estricta para el compilador: los argumentos posicionales siempre deben ir antes que los argumentos nombrados.
+python
+#  VÁLIDO: Posicional primero, nombrado después
+crear_usuario("Lucas", es_administrador=True)
+
+# ❌ ERROR DE SINTAXIS (SyntaxError): Nombrado antes que posicional
+crear_usuario(nombre="Lucas", True)
+Use code with caution.
+
+Forzar Argumentos Nombrados (*)
+
+Python te permite blindar tus funciones para obligar a otros programadores (o a ti mismo) a usar argumentos nombrados. 
+Esto se logra colocando un asterisco solitario * en la definición de los parámetros. Todo lo que esté a la derecha 
+del * solo podrá pasarse con nombre.
+python
+def enviar_correo(destinatario, asunto, *, urgente=False):
+    print(f"Enviando a {destinatario} con asunto '{asunto}'. ¿Urgente?: {urgente}")
+
+# ❌ Esto dará un TypeError (Python no acepta el tercer argumento por posición)
+enviar_correo("juan@mail.com", "Reporte", True)
+
+#  Forma correcta obligatoria
+enviar_correo("juan@mail.com", "Reporte", urgente=True)

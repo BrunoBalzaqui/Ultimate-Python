@@ -1,0 +1,65 @@
+Un linter es una herramienta de análisis estático que examina tu código fuente sin ejecutarlo. 
+Su función principal es detectar errores de sintaxis, fallos de lógica y malas prácticas de estilo 
+basados en el estándar oficial de Python, el PEP 8.
+A diferencia de un formateador (que solo altera visualmente el orden y los espacios), el linter actúa como 
+un filtro de calidad que analiza cómo se ejecutará el código.
+
+
+Principales usos y beneficios
+
+• Detección temprana de errores: Te avisa en tiempo real si tienes variables o funciones no definidas, 
+paréntesis faltantes o errores tipográficos antes de ejecutar tu script.
+• Limpieza de código muerto: Identifica variables declaradas que nunca se usan o librerías importadas 
+al inicio del archivo que no estás utilizando.
+• Consistencia en equipo: Garantiza que todo el equipo de desarrollo programe bajo las mismas reglas 
+visuales e indentaciones (como los cuatro espacios de Python).
+• Prevención de bugs sutiles: Detecta malas prácticas complejas, como el intento de redefinir funciones 
+nativas de Python (print, len, etc.).
+
+
+Los linters de Python más populares
+
+1. Ruff: Actualmente es el linter de referencia. Está escrito en Rust y es entre 10 y 100 veces más rápido 
+que los demás. Además, funciona también como formateador de código, reemplazando herramientas antiguas como 
+Flake8 o Black en un solo lugar.
+2. Pylint: Una de las herramientas más maduras y exhaustivas. Analiza el código muy a fondo y te entrega una 
+puntuación de calidad, aunque puede ser algo lento en proyectos gigantescos.
+3. Flake8: Una opción clásica y ligera que comprueba errores de estilo. (Muchas de sus reglas hoy en día 
+las cubre Ruff de forma nativa).
+
+
+Cómo usar un linter en Visual Studio Code (VSC)
+
+¡Nota importante de actualización! Antiguamente, los linters se configuraban activando opciones internas de la 
+extensión general de Python (python.linting.enabled). Ese método ya no está soportado. Ahora, VS Code utiliza 
+extensiones independientes dedicadas para cada linter.
+
+
+Paso 1: Instalar la extensión dedicada
+
+1. Abre VS Code e ingresa al apartado de Extensions (Ctrl+Shift+X o Cmd+Shift+X).
+2. Busca e instala la extensión del linter que prefieras. La opción recomendada actualmente es Ruff (desarrollada 
+por Astral Software). Si prefieres la clásica, puedes buscar Pylint (desarrollada por Microsoft).
+
+Paso 2: Ver los errores en tiempo real
+
+• Una vez instalada, el linter comenzará a trabajar automáticamente. Verás líneas onduladas rojas (errores) o 
+amarillas (advertencias) debajo de tu código.
+• Puedes abrir el panel inferior de Problems presionando Ctrl+Shift+M (o Cmd+Shift+M en Mac) para ver la lista 
+completa de advertencias de tu archivo actual.
+
+Paso 3: Configurar acciones automáticas (Opcional)
+
+Si quieres que el linter solucione automáticamente lo que pueda al guardar el archivo, presiona Ctrl+, (o Cmd+,), 
+ve al ícono de arriba a la derecha para Open Settings (JSON) y añade las siguientes líneas según tu herramienta 
+elegida (por ejemplo, para Ruff):
+
+{
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll.ruff": "always",
+            "source.organizeImports.ruff": "always"
+        }
+    }
+}

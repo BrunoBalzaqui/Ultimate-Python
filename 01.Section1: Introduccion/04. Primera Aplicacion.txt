@@ -1,0 +1,34 @@
+Para crear tu primera aplicación en Visual Studio Code (VSC) con Python, sigue estos pasos básicos:
+
+1. Requisitos previos
+
+• Tener Python instalado en tu computadora.
+• Tener Visual Studio Code instalado.
+
+2. Instalar la extensión de Python en VSC
+
+• Abre Visual Studio Code.
+• Ve al menú de Extensiones en la barra lateral izquierda (o presiona Ctrl + Shift + X).
+• Busca Python (publicada por Microsoft) y dale a Instalar.
+
+3. Crear una carpeta para tu proyecto
+
+• Crea una carpeta nueva en tu computadora (por ejemplo, llamada mi_proyecto).
+• En VSC, ve a Archivo > Abrir carpeta... (File > Open Folder) y selecciona esa carpeta.
+
+4. Escribir el código
+
+• Dentro de la carpeta del proyecto, crea un nuevo archivo llamado hola.py.
+• Escribe el siguiente código de prueba:
+- print("¡Hola, mundo!")
+
+• Guarda el archivo (Ctrl + S).
+
+
+5. Seleccionar el intérprete y ejecutar
+
+• Presiona Ctrl + Shift + P para abrir la Paleta de comandos.
+• Escribe y selecciona Python: Select Interpreter (Python: Seleccionar intérprete) y elige 
+la versión de Python que instalaste.
+• Ejecuta el programa haciendo clic en el botón de reproducción en la esquina superior derecha, 
+o haz clic derecho en el editor y elige Run Python File in Terminal (Ejecutar archivo de Python en la terminal).

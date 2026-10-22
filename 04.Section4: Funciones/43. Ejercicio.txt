@@ -1,0 +1,58 @@
+Definir una funcion que se llamara es_palindromo
+esta va a recibir un parametro
+
+un palindromo es una palabra frase u oracion que se lee igual de derecha a izquiereda que de derecha a izquiereda
+
+
+ej: abba, reconocer, amo la paloma ...
+
+
+lo primero es ingresar la palabra por el codigo en print("palabrax") despues llamamos la funcion palindromo y pasamos la palabrax
+
+ejecutamos el codigo y verificamos si palabrax true / false
+
+
+
+Aquí tienes la solución al ejercicio estructurada paso a paso. Para resolverlo correctamente (especialmente con frases como "amo la paloma"), debemos aplicar un pequeño truco de limpieza de texto: eliminar los espacios y pasar todo a minúsculas. Si no lo hacemos, los espacios y las mayúsculas harían que las frases no coincidan al leerse al revés.
+A nivel de hardware, usaremos una técnica de Python ultra rápida llamada slicing ([::-1]), que le ordena al procesador invertir el orden de la cadena directamente en la memoria RAM de un solo golpe.
+
+El Código en Python
+
+Copia y pega este código en tu archivo de VS Code:
+python
+def es_palindromo(texto):
+    # 1. Limpieza de texto: pasamos a minúsculas y eliminamos todos los espacios en blanco
+    texto_limpio = texto.lower().replace(" ", "")
+    
+    # 2. Invertimos la cadena usando slicing [:: -1] en memoria
+    texto_invertido = texto_limpio[::-1]
+    
+    # 3. Retornamos True si son iguales, o False si no lo son
+    return texto_limpio == texto_invertido
+
+
+# --- Flujo del programa según tus instrucciones ---
+
+# Lo primero: definir e ingresar la palabra/frase directamente en el código
+palabrax = "amo la paloma"
+print(f"palabrax: '{palabrax}'")
+
+# Llamamos a la función pasando nuestra variable palabrax y guardamos el resultado
+resultado = es_palindromo(palabrax)
+
+# Ejecutamos y verificamos si es True o False
+print(f"¿Es palíndromo?: {resultado}")
+Use code with caution.
+
+¿Cómo funciona la inversión de texto por dentro?
+
+Cuando Python ejecuta la línea texto_limpio[::-1]:
+• El paso [:: -1] le dice a la Máquina Virtual (PVM) que recorra el iterable (el string) desde el final hasta el principio con un paso de -1.
+• El procesador reserva un nuevo espacio en la memoria RAM y va copiando los caracteres al revés en nanosegundos de forma nativa en C, lo cual es muchísimo más eficiente que usar un bucle for manual para dar vuelta la palabra.
+
+Pruebas que puedes hacer cambiando el valor de palabrax:
+
+• Si pones "reconocer", la terminal mostrará True.
+• Si pones "amo la paloma", gracias al .replace(" ", ""), el programa comparará "amolapaloma" contra "amolapaloma" y devolverá True.
+• Si pones "computadora", devolverá False.
+

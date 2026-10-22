@@ -1,0 +1,35 @@
+Un bucle infinito (o infinite loop) ocurre cuando un ciclo se ejecuta de forma repetitiva y nunca se detiene, 
+debido a que su condición de parada jamás se vuelve falsa o no tiene una instrucción de salida (break).
+
+A nivel de hardware, esto provoca que el procesador quede atrapado ejecutando el mismo set de instrucciones 
+una y otra vez en un ciclo sin fin, consumiendo recursos de la CPU innecesariamente.
+
+
+¿Cómo se genera un bucle infinito?
+
+El caso más común ocurre con el ciclo while cuando la condición es fija o la variable de control nunca cambia:
+python
+# Caso 1: Condición fija que siempre es Verdadera
+while True:
+    print("Esto no va a parar...")
+
+# Caso 2: Olvidar modificar la variable de control
+contador = 1
+while contador < 5:
+    print(contador)
+    # Falta sumar: contador += 1 -> El contador siempre se queda en 1
+Use code with caution.
+
+¿Qué pasa en tu computadora cuando ocurre?
+
+1. Consumo de CPU: La Máquina Virtual de Python (PVM) le envía instrucciones a la CPU a la máxima velocidad posible. 
+Verás que el uso de un núcleo de tu procesador sube al 100%.
+2. Terminal congelada: En VS Code verás que la terminal imprime texto infinitamente o se queda congelada sin responder 
+a comandos normales.
+
+🛑 ¿Cómo detenerlo en VS Code?
+
+Si tu código entra en un bucle infinito, debes enviar una señal de interrupción del sistema directamente al procesador
+a través del teclado:
+• Presiona Ctrl + C dentro de la terminal de VS Code.
+• Esto forzará a Python a lanzar una excepción de tipo KeyboardInterrupt y detendrá la ejecución inmediatamente.

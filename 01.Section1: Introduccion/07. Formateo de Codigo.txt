@@ -1,0 +1,26 @@
+En Visual Studio Code (VS Code), puedes formatear tu código de Python de forma rápida y sencilla utilizando 
+atajos de teclado, configurando un formateador automático o activando el ordenado al guardar.
+
+1. Formatear manualmente
+
+• Atajo de teclado:
+	• Windows / Linux: Shift + Alt + F
+	• Mac: Shift + Option + F
+• Con el mouse: Haz clic derecho en cualquier parte del editor de código y selecciona Formatear documento (Format Document).
+
+2. Instalar y configurar un formateador (como Black o Ruff)
+
+Para obtener un estilo profesional y estandarizado (siguiendo las normas PEP 8), se recomienda instalar una extensión formateadora:
+1. Ve al menú de Extensiones en VS Code (Ctrl + Shift + X o Cmd + Shift + X).
+2. Busca e instala una extensión popular como Black Formatter (ms-python.black-formatter), Autopep8 o Ruff.
+3. Selecciona tu formateador predeterminado:
+	• Haz clic derecho en tu archivo de Python y elige Formatear documento con... (Format Document With...).
+	• Selecciona Configurar formateador predeterminado... (Configure Default Formatter...) y elige el que instalaste.
+También puedes consultar la guía oficial en Visual Studio Code Python Formatting.
+
+3. Activar el formateo automático al guardar (Format on Save)
+
+Si quieres que el código se ordene solo cada vez que guardes el archivo (Ctrl + S o Cmd + S):
+1. Abre la configuración presionando Ctrl + , (coma) o en el menú de engranaje (Configuración).
+2. En la barra de búsqueda escribe: Format On Save.
+3. Activa la casilla Editor: Format On Save

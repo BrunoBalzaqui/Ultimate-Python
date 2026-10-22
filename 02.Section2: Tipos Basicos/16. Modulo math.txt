@@ -1,0 +1,65 @@
+El módulo math de Python es una biblioteca estándar que viene preinstalada con el lenguaje. 
+Su propósito principal es darte acceso a funciones matemáticas de nivel de lenguaje C para 
+realizar operaciones complejas que no se pueden hacer con los operadores básicos (+, -, *, /).
+
+Dado que está escrito en C por debajo, es ultra rápido y eficiente a nivel de hardware, procesando 
+los cálculos casi directamente en el procesador a través de tipos de datos flotantes (números con decimales).
+
+
+¿Cómo se conecta con lo que hablamos antes?
+
+Cuando importas math y llamas a una función como math.sqrt(16), el compilador interno de Python genera un 
+bytecode específico que invoca directamente funciones compiladas en código nativo (C). No tiene que interpretar
+la lógica de la raíz cuadrada paso a paso en Python, lo que hace que la ejecución sea inmediata.
+
+
+Funciones y Herramientas Principales de math
+
+Para usarlo, siempre debes incluir la línea import math al inicio de tu archivo de VS Code. Aquí tienes las 
+herramientas más utilizadas clasificadas por su función:
+
+1. Constantes Matemáticas
+
+El módulo te da acceso a valores matemáticos con la máxima precisión que permite tu procesador:
+• math.pi: El número Pi (≈ 3.141592...)
+• math.e: La constante de Euler (≈ 2.718281...)
+• math.tau: Tau, que equivale a 2π (≈ 6.283185...)
+
+2. Redondeo y Conversión
+
+Python tiene un comando round() integrado, pero math te da control absoluto sobre cómo querés redondear hacia el hardware:
+• math.ceil(x): Redondea siempre hacia arriba al entero más cercano (ej. math.ceil(4.2) da 5).
+• math.floor(x): Redondea siempre hacia abajo al entero más cercano (ej. math.floor(4.8) da 4).
+• math.trunc(x): Elimina todos los decimales y te deja solo la parte entera sin redondear (ej. math.trunc(-4.8) da -4).
+
+3. Potencias y Raíces
+
+• math.sqrt(x): Calcula la raíz cuadrada de x. Es mucho más rápido que hacer x ** 0.5.
+• math.pow(x, y): Eleva x a la potencia y (devuelve siempre un número flotante).
+• math.isqrt(x): Devuelve la raíz cuadrada entera exacta, redondeando hacia abajo (ideal para cálculos con números enteros puros).
+
+4. Trigonometría
+
+Todas las funciones trigonométricas de math esperan y devuelven valores en radianes, no en grados.
+• math.sin(x), math.cos(x), math.tan(x): Seno, coseno y tangente.
+• math.degrees(x): Convierte un ángulo de radianes a grados.
+• math.radians(x): Convierte un ángulo de grados a radianes.
+
+5. Operaciones Avanzadas
+
+• math.factorial(x): Calcula el factorial de un número entero (ej. math.factorial(5) es 5 × 4 × 3 × 2 × 1 = 120).
+• math.gcd(a, b): Devuelve el Máximo Común Divisor (MCD) entre dos números.
+• math.log(x, [base]): Calcula el logaritmo de x. Si no le pasás la base, calcula el logaritmo natural (base e).
+
+Ejemplo de uso en código
+
+Si escribís esto en tu VS Code:
+
+- import math
+
+- # Calcular el área de un círculo (Radio = 5) -> Área = pi * r^2
+- radio = 5
+- area = math.pi * math.pow(radio, 2)
+
+- print(f"El área exacta es: {area}")
+- print(f"Área redondeada hacia arriba: {math.ceil(area)}")

@@ -1,0 +1,69 @@
+Los argumentos opcionales son aquellos que no es obligatorio ingresar cuando llamas a una función en tu código. 
+Se crean asignándoles un valor por defecto directamente en la definición de los parámetros de la función.
+A nivel de hardware y memoria RAM, si tú no provees ese dato al ejecutar la función, la Máquina Virtual de Python 
+(PVM) clona automáticamente el valor por defecto guardado en la definición y lo asigna a la variable local de la CPU.
+
+
+Cómo se definen y se usan
+
+Para crear un parámetro opcional, simplemente usas el operador = al definir la función:
+python
+# 'nombre' es un argumento obligatorio
+# 'saludo' es un argumento opcional (si no se envía, usa "Hola")
+def dar_bienvenida(nombre, saludo="Hola"):
+    print(f"{saludo}, {nombre}!")
+
+# Caso 1: No enviamos el argumento opcional (Usa el valor por defecto)
+dar_bienvenida("Lucas")          # Resultado: "Hola, Lucas!"
+
+# Caso 2: Sí enviamos el argumento opcional (Sobrescribe el valor por defecto)
+dar_bienvenida("Lucas", "Buen día") # Resultado: "Buen día, Lucas!"
+Use code with caution.
+
+La Regla de Oro Posicional
+
+A nivel de sintaxis, Python exige un orden estricto para que el compilador no se confunda al mapear los datos en memoria: 
+todos los parámetros obligatorios deben ir primero, y los opcionales deben ir al final.
+python
+# ❌ ESTO DARÁ UN ERROR DE SINTAXIS (SyntaxError):
+def registrar_usuario(pais="Argentina", nombre): 
+    pass
+
+#  ESTO SÍ ES VÁLIDO:
+def registrar_usuario(nombre, pais="Argentina"):
+    pass
+Use code with caution.
+¿Por qué? Si llamaras a registrar_usuario("Ana"), el intérprete no tendría forma de saber si "Ana" corresponde al nombre o 
+si querías cambiar el país y te olvidaste el nombre.
+
+El Peligro Oculto: Cuidado con los "Mutables" por defecto
+
+Hay un error de hardware y memoria muy famoso en Python cuando usas objetos mutables (como listas o diccionarios) como 
+valores por defecto.
+python
+# ❌ EVITA ESTO:
+def agregar_item(item, lista=[]):
+    lista.append(item)
+    return lista
+
+print(agregar_item("manzana")) # Devuelve: ['manzana']
+print(agregar_item("pera"))    # Devuelve: ['manzana', 'pera'] (¡Sorpresa!)
+Use code with caution.
+¿Qué pasó aquí detrás de escena? Python evalúa el valor por defecto [] una sola vez cuando compila la función, no cada vez 
+que la ejecuta. El procesador usa exactamente la misma dirección de memoria de la lista para todas las llamadas, acumulando 
+los datos de forma inesperada.
+
+La Solución Correcta (Práctica Recomendada)
+
+Para evitar este comportamiento en memoria, usa None (que es inmutable) y crea la lista dentro de la función:
+python
+#  FORMA CORRECTA Y SEGURA:
+def agregar_item(item, lista=None):
+    if lista is None:
+        lista = [] # Se crea una lista NUEVA en la RAM en cada ejecución
+    lista.append(item)
+    return lista
+
+print(agregar_item("manzana")) # Devuelve: ['manzana']
+print(agregar_item("pera"))    # Devuelve: ['pera'] (Ahora funciona bien)
+Use code with caution.

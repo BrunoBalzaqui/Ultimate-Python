@@ -1,0 +1,49 @@
+Python
+# 1. Definimos los dos números directamente en el código
+numero1 = 10
+numero2 = 5
+
+# 2. Realizamos los cálculos
+suma = numero1 + numero2
+resta = numero1 - numero2
+multiplicacion = numero1 * numero2
+division = numero1 / numero2
+
+# 3. Mostramos todos los resultados en pantalla
+print("=== CALCULADORA BÁSICA (VALORES FIJOS) ===")
+print(f"Primer número: {numero1}")
+print(f"Segundo número: {numero2}")
+print("------------------------------------------")
+print(f"Suma ({numero1} + {numero2}): {suma}")
+print(f"Resta ({numero1} - {numero2}): {resta}")
+print(f"Multiplicación ({numero1} * {numero2}): {multiplicacion}")
+print(f"División ({numero1} / {numero2}): {division}")
+print("==========================================")
+
+¿Cómo funciona este script?
+Variables fijas: numero1 y numero2 guardan los datos iniciales. Si quieres probar con otros números, solo cambias 
+el 10 y el 5 en el archivo.
+
+Operadores matemáticos: Usamos +, -, * y / para almacenar los resultados en sus respectivas variables.
+
+Formato de salida (f-strings): La f antes de la cadena de texto (f"...") nos permite insertar el valor de las 
+ariables directamente usando llaves {}.
+
+
+Para entender a fondo cómo funciona este programa en Python, vamos a desglosar el paso a paso de lo que ocurre 
+"por debajo" cada vez que se ejecuta el código:
+
+Definición de valores estáticos: El script arranca tomando dos valores fijos que ya asignamos en el código 
+(numero1 = 10 y numero2 = 5). No le pide nada al usuario ni lee ningún archivo externo; trabaja directamente con 
+los datos que tiene escritos.
+
+Ejecución de operaciones matemáticas: El intérprete de Python toma esos dos números y realiza de forma simultánea 
+las cuatro operaciones aritméticas básicas usando los operadores oficiales (+ para sumar, - para restar, * para multiplicar 
+y / para dividir), guardando el resultado de cada cálculo en su propia variable independiente (suma, resta, 
+multiplicacion y division).
+
+Formateo de texto en pantalla: Utiliza bloques de impresión (print) combinados con cadenas formateadas (f-strings), 
+las cuales permiten reemplazar dinámicamente las llaves {} por el valor exacto que contienen las variables en ese momento.
+
+Renderizado visual: Imprime el resultado directamente en la consola ordenado en bloques con líneas divisorias, 
+mostrando de forma limpia y directa tanto los números de entrada como los resultados obtenidos sin requerir intervención humana.

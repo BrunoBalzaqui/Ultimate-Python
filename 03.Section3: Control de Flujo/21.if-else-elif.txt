@@ -1,0 +1,67 @@
+Las estructuras if, elif y else son los condicionales en Python. Sirven para tomar decisiones en tu código: 
+le permiten a tu programa ejecutar diferentes bloques de instrucciones dependiendo de si una condición es 
+verdadera (True) o falsa (False).
+
+A nivel de hardware, esto se traduce directamente en instrucciones de salto o bifurcación en tu procesador. 
+La CPU evalúa un camino y, si no se cumple, salta físicamente en la memoria RAM hacia las líneas de código 
+del siguiente bloque, ignorando por completo el código descartado.
+
+
+La analogía de los caminos
+
+Imaginalo como tomar decisiones en la vida real al salir de casa:
+• if (Si...): Es tu primera opción. Si se cumple, la hacés y te olvidás del resto.
+• elif (Si no, pero si...): Es tu plan B, C o D. Solo lo miras si el if falló.
+• else (De lo contrario...): Es tu última opción por defecto. Se ejecuta solo si absolutamente todos los 
+planes anteriores fallaron.
+
+
+Sintaxis básica y Reglas en Python
+
+En Python, el orden siempre es estricto: un if al principio, cero o más elif en el medio, y un else opcional 
+al final.
+- if condicion_1:
+-     # Código que se ejecuta si la condicion_1 es Verdadera
+- elif condicion_2:
+-     # Código que se ejecuta si la condicion_1 fue Falsa, pero la condicion_2 es Verdadera
+- else:
+-     # Código que se ejecuta si NINGUNA de las condiciones anteriores fue Verdadera
+
+⚠️ Regla de oro de Python: La indentación (los 4 espacios o el "Tab" hacia la derecha) es obligatoria. 
+Le dice al compilador e intérprete exactamente qué líneas de código pertenecen a cada decisión.
+
+
+Ejemplo Práctico: Clasificación de Edades
+
+Imaginá que estás programando el sistema de acceso para un evento en tu VS Code:
+- edad = 19
+- 
+- if edad < 13:
+-     print("Eres un niño. Entrada gratis al sector infantil.")
+-     
+- elif edad < 18:
+-     print("Eres un adolescente. Pagas tarifa reducida.")
+-     
+- elif edad == 18:
+-     print("¡Felicidades! Cumples la mayoría de edad justo hoy. Entrada especial.")
+-     
+- else:
+-     print("Eres un adulto. Pagas tarifa completa.")
+
+
+¿Cómo procesa esto la Máquina Virtual de Python (PVM) línea por línea?
+
+1. Evalúa el if (edad < 13): Compara 19 < 13. Esto da como resultado un valor booleano False. El intérprete 
+ignora el print indentado y salta al siguiente bloque.
+2. Evalúa el primer elif (edad < 18): Compara 19 < 18. Da False. Salta al siguiente bloque.
+3. Evalúa el segundo elif (edad == 18): Compara 19 == 18. Da False. Salta al siguiente bloque.
+4. Llega al else: Como todas las opciones de arriba dieron False, el procesador ejecuta de manera obligatoria 
+este bloque por descarte. En la terminal de VS Code verás impreso: "Eres un adulto. Pagas tarifa completa."
+
+
+Características clave que debés recordar
+• Evaluación en cadena: En cuanto Python encuentra una condición que es True, ejecuta su código y sale inmediatamente 
+de toda la estructura. No pierde tiempo de procesador revisando los elif o else restantes, aunque también fuesen verdaderos.
+• El else no lleva condición: Nunca escribas algo como else edad > 18:. El else es una bolsa que atrapa todo lo que 
+no entró en los casos anteriores; no se le define ninguna regla.
+• Múltiples elif: Podés encadenar todos los elif que necesites para tu lógica (por ejemplo, para evaluar las opciones de un menú).

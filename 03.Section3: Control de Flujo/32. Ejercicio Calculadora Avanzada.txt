@@ -1,0 +1,75 @@
+Vamos a programar este ejercicio paso a paso en Python. Lo que estás describiendo es la lógica típica de una calculadora de consola interactiva (un bucle con memoria), donde el resultado anterior se convierte automáticamente en el primer número de la siguiente operación.
+
+Aquí tienes el diseño y el código estructurado de forma limpia.
+
+Paso 1: Estructurar la lógica del programa
+Para cumplir con lo que pides, necesitamos:
+
+Una variable para almacenar el primer número (que al principio estará vacía).
+
+Un bucle (while True) para que la calculadora se mantenga repitiendo el proceso de forma continua.
+
+Estructuras condicionales (if / else) para verificar si ya tenemos un número guardado o si debemos pedírselo al usuario.
+
+Paso 2: Código completo en Python
+Puedes copiar y pegar este código en un archivo (por ejemplo, calculadora.py) y ejecutarlo con python3 calculadora.py:
+
+Python
+# Inicializamos la variable que guardará nuestro número principal
+primer_numero = None
+
+print("--- ¡Bienvenido a tu Calculadora Interactiva! ---")
+
+while True:
+    # 1 y 2. Verificar si ya ingresamos un número antes
+    if primer_numero is None:
+        try:
+            primer_numero = float(input("\nIngresa el primer número: "))
+        except ValueError:
+            print("Error: Debes ingresar un número válido.")
+            continue  # Vuelve al inicio del bucle si no ingresó un número
+
+    # 3. Pedir la operación al usuario (porque ya tenemos un número)
+    operacion = input(
+        "Ingresa una operación (+, -, *, /) o escribe 'salir' para terminar: "
+    )
+
+    if operacion.lower() == "salir":
+        print("¡Hasta luego!")
+        break
+
+    if operacion not in ["+", "-", "*", "/"]:
+        print("Operación no válida. Usa +, -, * o /.")
+        continue
+
+    # 4. Pedir el segundo número
+    try:
+        segundo_numero = float(input("Ingresa el siguiente número: "))
+    except ValueError:
+        print("Error: Debes ingresar un número válido.")
+        continue
+
+    # 5. Calcular y mostrar los resultados
+    resultado = None
+    if operacion == "+":
+        resultado = primer_numero + segundo_numero
+    elif operacion == "-":
+        resultado = primer_numero - segundo_numero
+    elif operacion == "*":
+        resultado = primer_numero * segundo_numero
+    elif operacion == "/":
+        if segundo_numero == 0:
+            print("Error: No se puede dividir entre cero.")
+            continue
+        resultado = primer_numero / segundo_numero
+
+    print(f"Resultado: {primer_numero} {operacion} {segundo_numero} = {resultado}")
+
+    # 6 y 7. Guardar el resultado como el primer número para la siguiente iteración
+    primer_numero = resultado
+Verificación de funcionamiento
+Al iniciar: Como primer_numero es None, te pedirá obligatoriamente que ingreses un número.
+
+En el siguiente ciclo: Como primer_numero ya tiene un valor guardado, se saltará ese paso y te pedirá directamente la operación y el segundo número.
+
+Memoria: Al terminar la operación, el resultado se asigna a primer_numero, permitiéndarte seguir operando sobre ese total tal como lo pediste.

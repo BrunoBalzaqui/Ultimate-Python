@@ -1,0 +1,40 @@
+A nivel teórico, la lógica para resolver si un texto es un palíndromo se basa en tres pilares fundamentales de las 
+ciencias de la computación: normalización de datos, manipulación de punteros en memoria y álgebra booleana.
+
+Aquí te explico paso a paso qué ocurre conceptualmente en la computadora cuando se ejecuta el ejercicio:
+
+1. El problema de la "Asimetría Humana" (Normalización)
+
+Para una computadora, la letra "A" (mayúscula) y la letra "a" (minúscula) no son iguales; de hecho, en la memoria RAM 
+se guardan como números binarios completamente distintos (código ASCII/Unicode). Lo mismo ocurre con el carácter de 
+espacio en blanco " ".
+Si intentáramos dar la vuelta a la frase "Amo la paloma" directamente, al leerla al revés obtendríamos "amolal omA". 
+Para el procesador, estos dos textos no coinciden debido a la posición de los espacios y la mayúscula.
+Por eso, el primer paso teórico es la Normalización: obligamos a la computadora a transformar todo el texto a un 
+estándar uniforme (todo en minúsculas y sin espacios), convirtiendo la frase en un bloque continuo de caracteres 
+idénticos: "amolapaloma".
+
+2. La Inversión del Iterable en Memoria (Slicing)
+
+Como vimos antes, un texto es un iterable (una cadena secuencial de caracteres indexados en posiciones: 0, 1, 2, 3...).
+Para leerlo de derecha a izquierda, la Máquina Virtual cambia el sentido de su "puntero" o flecha de lectura. En lugar 
+de empezar en el índice 0 e ir sumando +1, el procesador se posiciona en el último índice del texto y empieza a 
+restar -1 de forma sucesiva. A medida que retrocede, copia cada carácter en un espacio de memoria completamente nuevo, creando 
+una copia exacta pero invertida del texto original simplificado.
+
+3. La Comparación Binaria (Evaluación Booleana)
+
+Una vez que la computadora tiene los dos bloques de texto en la memoria RAM (el texto normalizado original y el texto invertido), 
+la Unidad Aritmético Lógica (ALU) del procesador realiza una comparación celda por celda (carácter por carácter).
+• El programa pregunta: ¿El primer carácter de la izquierda es igual al primer carácter de la derecha? ¿El segundo es 
+igual al segundo? y así sucesivamente.
+• Si todas y cada una de las posiciones coinciden exactamente, la expresión lógica se evalúa como verdadera y la función 
+devuelve el bit de éxito: True.
+• Si tan solo un carácter es diferente (por ejemplo, en "computadora" vs "arodatupmoc"), el circuito lógico de comparación 
+se interrumpe y devuelve el bit de falla: False.
+
+4. El Retorno y la Asignación
+
+Finalmente, ese valor booleano (True o False) viaja de regreso (es devuelto por la función) hacia la línea de código principal 
+del programa. El resultado se guarda temporalmente en la variable que definiste y la instrucción print se encarga de traducir 
+ese bit interno del sistema en texto legible para que lo veas en la terminal de VS Code.

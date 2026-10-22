@@ -1,0 +1,69 @@
+La conversión de tipos (también conocida como type casting o type conversion) es el proceso de transformar 
+el valor de un tipo de dato en otro (por ejemplo, convertir el texto "5" en el número 5).
+
+En Python, esto es fundamental porque es un lenguaje de tipado dinámico pero fuerte. Esto significa que una 
+variable puede cambiar de tipo, pero Python no te dejará mezclar tipos incompatibles de forma automática 
+(por ejemplo, intentar sumar texto con un número dará un error a nivel de compilación/interpretación).
+
+
+Existen dos formas en las que ocurre esta conversión:
+
+1. Conversión Implícita (Automática)
+
+Ocurre cuando Python convierte el tipo de dato de forma automática detrás de escena para evitar que pierdas 
+información o para que la operación tenga sentido a nivel de hardware.
+• Ejemplo común (Entero a Flotante):
+- num_entero = 5    # Tipo: int
+- num_decimal = 2.5 # Tipo: float
+
+- # Python convierte automáticamente el entero a flotante antes de sumar
+- resultado = num_entero + num_decimal 
+- print(resultado)  # Da 7.5 (Tipo: float)
+
+Detrás de escena: La Máquina Virtual de Python (PVM) detecta que estás operando un int y un float. Como el float 
+es más preciso, el procesador transforma temporalmente el 5 en 5.0 para realizar la operación en la ALU (Unidad Aritmético Lógica).
+
+2. Conversión Explícita (Manual o Casting)
+
+Es cuando tú, como programador, obligas a Python a cambiar el tipo de dato utilizando funciones integradas del lenguaje. 
+Estas funciones toman un valor y devuelven uno nuevo con el tipo deseado.
+
+Las funciones principales son:
+
+Funcion         Que Hace                                 Ejemplo         Resultado 
+
+int(x)      Convierte x a un numero entero.             int("10")       10 (int)   
+-           Quita decimales o tradute texto numerico    int(4.9)        4 (int - trunca, no
+-                                                                       redondea)
+
+float(x)    Convierte x a un numero decimal.            float(8)        8.0 (float)
+-                                                       float("3.14")   3.14 (float)
+
+str(x)      Convierte x en una cadena de texto          str(25)         "25" (str)
+-           (string)                                    str(True)       "True" (str)
+
+bool(x)     Convierte x en un valor booleano            bool(1)         True
+-           (True o False)                              bool(0)         False
+
+
+El ejemplo de la calculadora:
+
+Cuando usas input(), Python siempre recibe texto. Si quieres hacer matemáticas con eso, debes aplicar conversión explícita:
+python
+# Lo que ingresa el usuario en VS Code siempre es un String (texto)
+edad_texto = input("Introduce tu edad: ") # Supongamos que escribe "20"
+
+# Error si no conviertes: edad_texto + 1 dará un TypeError
+
+# Conversión explícita a entero
+edad_numero = int(edad_texto) 
+futura_edad = edad_numero + 1 # Ahora sí es válido. Resultado: 21
+Use code with caution.
+
+¿Cómo maneja la memoria y el hardware este proceso?
+
+Cuando haces una conversión como numero = int("45"):
+1. El compilador de Python genera un bytecode que invoca una función interna escrita en C.
+2. Python analiza los caracteres de texto "4" y "5" en la memoria RAM, verifica que correspondan a dígitos numéricos válidos en el código ASCII / Unicode.
+3. El intérprete calcula su valor numérico real y reserva un nuevo bloque de memoria en la RAM estructurado específicamente para almacenar un entero binario.
+4. Si intentas convertir algo inválido (como int("hola")), la conversión falla antes de llegar al procesador y Python lanza una excepción de tipo ValueError.

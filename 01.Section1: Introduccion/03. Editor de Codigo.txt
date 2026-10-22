@@ -1,0 +1,21 @@
+Los editores de código fuente son programas de computadora que te ayudan a escribir, 
+modificar y organizar código para programas o páginas web. A diferencia de un procesador 
+de texto normal (como Word), incluyen herramientas especiales para programadores.
+
+
+Funciones principales
+
+• Resaltado de sintaxis: Cambia el color de las palabras según el lenguaje de programación para leer el código más fácil.
+• Autocompletado: Sugiere líneas de código mientras escribes para ahorrar tiempo.
+• Depuración: Te ayuda a encontrar errores (bugs) de forma rápida.
+• Extensiones o complementos: Permiten agregar nuevas funciones según lo que necesites.
+
+
+Mejores editores de código actuales
+
+• Visual Studio Code: Es el editor más popular del mundo. Es gratuito, liviano, multiplataforma (Windows, Mac, Linux) y cuenta 
+con una enorme cantidad de extensiones y asistencia de inteligencia artificial.
+• Sublime Text: Muy rápido y liviano. Ideal si buscas un programa que abra archivos grandes al instante y use pocos recursos.
+• Notepad++: Una opción clásica y muy liviana, exclusiva para Windows, ideal para ediciones rápidas de archivos.
+• Cursor / Editores con IA: Nuevos editores basados en VS Code que integran Inteligencia Artificial avanzada directamente en el chat y la generación de código.
+• Editores en línea: Plataformas para programar directamente desde el navegador sin instalar nada, como paiza.IO o CodePen.

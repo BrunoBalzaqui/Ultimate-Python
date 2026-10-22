@@ -1,0 +1,30 @@
+Para instalar la última versión estable de Python en tu distribución de Linux (como AnduinOS), 
+el método más limpio y directo es utilizar el administrador de paquetes del sistema (apt).
+
+Pasos para instalar Python
+
+1. Actualizar los repositorios del sistema
+
+Abre tu terminal y asegúrate de que la lista de paquetes esté actualizada:
+- Bash
+- sudo apt update
+
+Verification: El comando se ejecutará sin errores descargando las listas de los repositorios.
+
+
+2. Instalar Python y el administrador de paquetes (pip)
+
+Ejecuta el siguiente comando para instalar Python y pip (la herramienta para instalar librerías de Python):
+- Bash
+- sudo apt install -y python3 python3-pip
+
+Verification: La terminal completará la instalación de los paquetes necesarios sin mostrar fallos críticos.
+
+
+3. Verificar que la instalación fue exitosa
+
+Comprueba que Python responde y muestra su versión actual:
+- Bash
+- python3 --version
+
+Verification: La terminal devolverá un mensaje indicando la versión instalada (por ejemplo, Python 3.x.x).

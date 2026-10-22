@@ -1,0 +1,28 @@
+Explicado en palabras sencillas y paso a paso, así es exactamente como funciona por dentro la lógica de nuestra 
+calculadora avanzada (la que tiene memoria y recuerda el resultado anterior):
+
+El sistema de memoria inicial: Al arrancar el programa, la calculadora crea una variable (llamémosla primer_numero) 
+que empieza vacía o sin valor (None). Esto le sirve para saber que todavía no hay ninguna cuenta hecha.
+
+La primera validación (¿Hay un número guardado?): El programa revisa esa variable. Como está vacía, la calculadora 
+entiende que es la primera vez que se usa y le pide obligatoriamente al usuario que escriba un número por teclado 
+para poder empezar. Si el usuario escribe algo que no es un número (como una letra), el programa le avisa del error 
+y vuelve a empezar el turno.
+
+La selección de la operación: Una vez que ya tenemos un número válido (ya sea porque el usuario lo acaba de 
+escribir o porque viene de una cuenta anterior), el programa le pide al usuario que elija qué operación quiere 
+hacer (+, -, * o /) o si prefiere salir escribiendo "salir".
+
+El ingreso del segundo número: Con la operación ya elegida, el programa le pide al usuario que ingrese un segundo 
+número para completar la cuenta.
+
+El cálculo matemático: El programa toma el primer número, le aplica la operación matemática elegida utilizando 
+el segundo número, calcula el resultado final y lo muestra claramente en la pantalla.
+
+El ciclo de memoria (El "truco" principal): Inmediatamente después de mostrar el resultado, el programa toma ese 
+número recién calculado y lo guarda automáticamente dentro de la variable del primer número, borrando el valor viejo.
+
+El bucle infinito: Como todo esto está dentro de un circuito que se repite sin parar, la calculadora vuelve al 
+inicio (Paso 2). Pero como ahora la variable del primer número sí tiene guardado el resultado anterior, el programa 
+se salta la parte de pedir un nuevo número inicial y le pide directamente al usuario la siguiente operación y el 
+siguiente número, permitiendo encadenar cuentas infinitas usando siempre el total previo.

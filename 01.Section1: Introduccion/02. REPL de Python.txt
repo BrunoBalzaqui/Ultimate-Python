@@ -1,0 +1,41 @@
+El REPL de Python (Read-Eval-Print Loop o bucle de lectura, evaluación, impresión y repetición) 
+es la consola interactiva que te permite escribir código de Python línea por línea y ver los 
+resultados de forma instantánea.
+
+
+¿Qué significan sus siglas?
+
+• Read (Leer): Toma la línea de código que escribes en la consola.
+• Eval (Evaluar): Interpreta y ejecuta ese código.
+• Print (Imprimir): Muestra el resultado (o error) en pantalla.
+• Loop (Repetir): Vuelve a empezar y queda a la espera de la siguiente instrucción (>>>).
+
+
+
+Cómo iniciar y cerrar el REPL
+
+• Abrir: Abre tu terminal, símbolo del sistema (cmd) o PowerShell y escribe:
+- bash
+- python
+
+• Identificador: Sabrás que estás dentro cuando veas el símbolo del prompt: >>>.
+• Cerrar: Escribe exit() o quit(), o presiona Ctrl + D (en Unix/macOS) o Ctrl + Z seguido de Intro (en Windows).
+
+
+Comandos y atajos útiles
+
+• La variable especial _: Almacena automáticamente el resultado de la última expresión que calculaste.
+• Ayuda interactiva: Escribe help() para entrar al sistema de ayuda o help(nombre_de_funcion) para consultar la documentación de algo específico.
+• Atajos de teclado:
+	• Flecha Arriba / Abajo: Navegar por el historial de comandos previos.
+	• Ctrl + L: Limpiar la pantalla de la consola.
+	• Ctrl + C: Cancelar un comando o bucle que se quedó colgado (KeyboardInterrupt).
+
+
+
+Alternativas avanzadas al REPL estándar
+
+El REPL nativo es muy útil para pruebas rápidas, pero básico. Existen opciones mejoradas:
+• IPython: Añade resaltado de sintaxis, autocompletado avanzado y funciones mágicas como %timeit.
+• bpython: Ofrece sugerencias de código en tiempo real mientras vas escribiendo.
+• ptpython: Soporta atajos de teclado estilo Vi / Emacs y uso de ratón.

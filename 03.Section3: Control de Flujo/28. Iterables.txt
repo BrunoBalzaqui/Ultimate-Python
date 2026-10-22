@@ -1,0 +1,34 @@
+Un iterable en Python es cualquier objeto que contiene una colección de elementos y es capaz de devolver sus 
+miembros uno a uno, permitiendo que sea recorrido dentro de un bucle (como un ciclo for).
+A nivel de hardware, un iterable es una estructura de datos que expone un "set de reglas" específico en la memoria RAM 
+que le permite a la Máquina Virtual de Python (PVM) saber cómo saltar de un elemento al siguiente sin mezclar la información.
+
+
+Los ejemplos más comunes de Iterables
+
+En tu código de VS Code, usas iterables todo el tiempo:
+• Listas (list): [1, 2, 3]
+• Cadenas de texto (str): "Hola" (Python la recorre letra por letra: 'H', 'o', 'l', 'a')
+• Tuplas (tuple): (10, 20)
+• Diccionarios (dict): {"a": 1, "b": 2} (recorre sus llaves)
+• Rangos (range): range(0, 5)
+
+¿Cómo funciona detrás de escena? (El secreto técnico)
+
+Para que un objeto sea un iterable, debe tener definido un método especial interno llamado __iter__().
+Cuando tú escribes un bucle for, Python hace lo siguiente de forma automática:
+1. Toma el iterable y llama a su método __iter__().
+2. Esto crea un objeto llamado Iterador (una especie de "puntero" o flecha de lectura en la memoria RAM).
+3. El ciclo for le pide al iterador el "siguiente elemento" usando el comando next().
+4. El procesador avanza en la memoria, te entrega el elemento y repite el proceso hasta que el iterable se queda 
+sin datos y envía una señal de parada (StopIteration).
+- # Lo que tú escribes en VS Code:
+- for letra in "Sol":
+-     print(letra)
+
+# Lo que Python hace tras bambalinas:
+# 1. Convierte el iterable en iterador: objeto_iterador = iter("Sol")
+# 2. Llama a next(objeto_iterador) -> Devuelve 'S'
+# 3. Llama a next(objeto_iterador) -> Devuelve 'o'
+# 4. Llama a next(objeto_iterador) -> Devuelve 'l'
+# 5. Llama a next(objeto_iterador) -> Descubre que no hay más y frena el ciclo.

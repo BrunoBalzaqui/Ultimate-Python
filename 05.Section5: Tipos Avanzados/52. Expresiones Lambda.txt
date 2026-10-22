@@ -1,0 +1,52 @@
+Las expresiones lambda (también conocidas como funciones anónimas) son una forma abreviada de escribir funciones 
+en Python en una sola línea de código, sin necesidad de darles un nombre (es decir, sin usar la palabra clave def).
+A nivel de hardware y compilación, una función lambda hace exactamente lo mismo que una función normal (def): genera 
+un bloque de código ejecutable en memoria. La única diferencia es que se crea como una expresión que devuelve un objeto 
+de función de manera inmediata, ideal para tareas rápidas y de un solo uso.
+
+Sintaxis Básica
+
+La estructura teórica de una expresión lambda es muy estricta:
+python
+lambda parametros: expresion
+Use code with caution.
+• lambda: Es la palabra reservada que le avisa al compilador que inicia una función anónima.
+• parámetros: Son las variables de entrada separados por comas (igual que los parámetros de un def). Pueden ser cero, uno 
+o muchos.
+• :: Separa los parámetros del cuerpo de la función.
+• expresión: Es la operación matemática o lógica que procesará la CPU. Python evalúa y retorna automáticamente el 
+resultado de esta línea, por lo que está prohibido usar la palabra return aquí dentro.
+
+¿Cómo funciona conceptualmente frente a def?
+
+Si comparamos la teoría de ambas estructuras, hacen lo mismo en la Máquina Virtual de Python (PVM), pero con diferente 
+diseño de código:
+Con def (Tradicional):
+python
+def duplicar(x):
+    return x * 2
+Use code with caution.
+Con lambda (Anónima):
+python
+lambda x: x * 2
+Use code with caution.
+Nota: Si quisieras usar esta lambda de forma aislada, tendrías que asignarla a una variable (ej. mi_funcion = lambda x: x * 2), 
+aunque su verdadero propósito teórico es no tener nombre y pasarse directamente a otras funciones.
+
+Características y Limitaciones Teóricas
+
+1. Una sola línea: Las expresiones lambda están limitadas por diseño a una única expresión. No puedes meter bucles (for, while) 
+ni bloques complejos de condiciones (if/elif/else tradicionales en múltiples líneas) dentro de ellas.
+2. Son "Anónimas": Al no registrar un nombre en el espacio de nombres (namespace) del programa, ayudan a mantener limpia la 
+emoria RAM si solo necesitas esa lógica en un punto muy específico del código.
+3. Cierre de memoria (Closures): Al igual que las funciones normales, las lambdas pueden recordar y acceder a variables que 
+fueron creadas en el entorno que las rodea, incluso si ese entorno ya terminó de ejecutarse.
+
+¿Para qué se usan en el mundo real?
+
+Su uso principal en la programación es servir como argumentos de orden superior. Esto significa que se envían como si fueran 
+"un dato más" dentro de funciones encargadas de procesar colecciones o iterables (como algoritmos de ordenamiento, filtros o 
+transformaciones).
+Por ejemplo, si tienes una lista de datos complejos y quieres decirle al procesador: "Ordena esta lista, pero usa esta regla 
+específica de una sola línea para decidir qué elemento va primero", ahí es donde una expresión lambda brilla por su velocidad 
+de implementación.

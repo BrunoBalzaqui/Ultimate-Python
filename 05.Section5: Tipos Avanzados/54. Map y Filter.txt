@@ -1,0 +1,51 @@
+Las funciones map() y filter() son funciones de orden superior integradas (built-in) en Python. Ambas toman como 
+entrada una función (que suele ser una expresión lambda) y un iterable (como una lista) para transformar o filtrar 
+datos de manera masiva.
+A nivel de hardware y rendimiento, su gran superpoder es que están implementadas directamente en lenguaje C por debajo. 
+Además, utilizan evaluación perezosa (lazy evaluation), lo que significa que no procesan los datos ni consumen memoria
+RAM de golpe, sino que lo hacen elemento por elemento a demanda.
+
+1. La Función map() (Transformación)
+
+La función map() aplica una misma regla matemática o lógica a cada uno de los elementos de un iterable y devuelve 
+los resultados transformados. El tamaño de la colección final siempre es exactamente el mismo que el de la original.
+text
+
+Concepto Teórico de MAP:
+[ Elemento 1, Elemento 2, Elemento 3 ] 
+      │           │           │
+      ▼           ▼           ▼      (Se aplica la función a cada uno)
+[ NuevaForma, NuevaForma, NuevaForma ]
+
+Use code with caution.
+• Ejemplo conceptual: Si tienes una lista de precios en pesos y usas map() con una función que multiplica por el tipo de cambio, 
+obtendrás una nueva colección con todos los precios convertidos a dólares.
+
+2. La Función filter() (Selección)
+
+La función filter() evalúa cada elemento de un iterable utilizando una función que debe devolver un valor booleano (True o False). 
+Si el elemento da True, se conserva; si da False, el procesador lo descarta. El resultado final suele ser una colección más pequeña.
+text
+
+Concepto Teórico de FILTER:
+[ Elemento 1, Elemento 2, Elemento 3 ]
+      │           │           │
+   ¿True?      ¿False?     ¿True?    (Se evalúa la condición)
+      │                       │
+      ▼                       ▼
+[ Elemento 1,             Elemento 3 ]
+Use code with caution.
+• Ejemplo conceptual: Si tienes una lista de usuarios de una plataforma y aplicas filter() con la condición "es_administrador", 
+la CPU descartará a todos los usuarios comunes y te entregará únicamente los que tengan permisos.
+
+El Secreto de la Memoria: Los Objetos "Generadores"
+
+Cuando ejecutas un map() o un filter() en Python, la computadora no te devuelve una lista nueva de inmediato. Si imprimes el 
+resultado directo en la terminal, verás algo extraño como <map object at 0x...> o <filter object at 0x...>.
+Esto es debido a la evaluación perezosa:
+1. Ahorro de RAM: Python no gasta memoria creando la nueva lista en ese instante. Esto es vital si estás procesando un archivo de 
+texto de 10 gigabytes o millones de registros.
+2. El Iterador: Lo que obtienes es un iterable/iterador especial. El procesador se queda "pausado" esperando.
+3. Ejecución a demanda: Solo cuando metes ese objeto dentro de un bucle for, o cuando obligas a Python a convertirlo usando la 
+función explícita list(), la CPU se activa, ejecuta la lógica elemento por elemento, llena la memoria RAM con los resultados reales 
+y te los muestra en pantalla.
